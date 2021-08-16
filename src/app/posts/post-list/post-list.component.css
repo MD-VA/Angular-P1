@@ -1,0 +1,25 @@
+:host {
+    display:block;
+    margin-top: 1rem;
+}
+
+.info-text {
+    text-align: center;
+}
+
+.post-image{
+    width:100%;
+    text-align: center;
+}
+
+.post-image img {
+    width:50%;
+    height:300px;   
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5) ; 
+    margin: 1em 1em;
+    text-align: center;
+}
+
+mat-paginator {
+    margin-top: 1rem;
+}

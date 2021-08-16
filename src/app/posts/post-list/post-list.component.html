@@ -1,0 +1,29 @@
+<mat-spinner style="text-align: center;" *ngIf="loading; else elseTemplate2"></mat-spinner>
+
+<ng-template #elseTemplate2>
+    <mat-accordion color="accent" multi="true" *ngIf="posts.length > 0; else elseTemplate">
+        <mat-expansion-panel *ngFor="let post of posts">
+            <mat-expansion-panel-header>
+                {{ post.title }}
+            </mat-expansion-panel-header>
+            <div class="post-image">
+                <img [src]="post.imagePath" [alt]="post.title" srcset="">
+            </div>
+            <p>{{ post.content }}</p>
+            <mat-action-row>
+                <a [routerLink]="['edit',post.id]" mat-button color="accent" >Edit me</a>
+                <button mat-button color="warn" (click)="onDelete(post.id)" >Delete me</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+    <ng-template #elseTemplate>
+        <p style="text-align:center" class="mat-body-1">No posts added yet</p>
+    </ng-template>
+</ng-template>
+<mat-paginator [length]="totalPost"
+[pageSize]="postPerPage"
+[pageSizeOptions]="pageSize"
+(page)="onChangePage($event)"
+aria-label="Select page">
+</mat-paginator>
